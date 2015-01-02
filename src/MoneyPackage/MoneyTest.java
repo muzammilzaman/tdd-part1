@@ -9,7 +9,10 @@ import static org.junit.Assert.assertTrue;
 
 public class MoneyTest {
 	@Test
-	
+	public void testPlusSameCurrencyReturnsMoney() {
+		Expression sum= Money.dollar(1).plus(Money.dollar(1));
+		assertTrue(sum instanceof Money);
+	}
 	public void testMixedAddition() {
 		Expression fiveBucks= Money.dollar(5);
 		Expression tenFrancs= Money.franc(10);

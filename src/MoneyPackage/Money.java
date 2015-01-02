@@ -4,14 +4,15 @@ public  class Money implements Expression{
 	protected int amount;
 	protected String currency;
 	 
+	
 	public Expression plus(Expression addend) {
 		return new Sum(this, addend);
 		}
-	
-	//abstract String currency();
-	Expression times(int multiplier) {
+	public Expression times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 		}
+	//abstract String currency();
+	
 	static Money dollar(int amount) {
 		return new Dollar(amount, "USD");
 		}
