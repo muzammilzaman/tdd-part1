@@ -8,13 +8,20 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class MoneyTest {
-	@Test
-	
+	@Test	
+	public void testDifferentClassEquality() {
+		assertTrue(new Franc(10, "CHF").equals(new Franc(10, "CHF")));
+		}
 	public void testMultiplication() {
 		Money five = Money.dollar(5);
 		assertEquals(Money.dollar(10), five.times(2));
 		assertEquals(Money.dollar(15), five.times(3));
 		} 
+	
+	public void testCurrency() {
+		assertEquals("USD", Money.dollar(1).currency());
+		assertEquals("CHF", Money.franc(1).currency());
+		}
 	public void testEquality() {
 		assertTrue(Money.dollar(5).equals(Money.dollar(5)));
 		assertFalse(Money.dollar(5).equals(Money.dollar(6)));
@@ -22,9 +29,6 @@ public class MoneyTest {
 		assertFalse(new Franc(5).equals(new Franc(6)));
 		assertFalse(new Franc(5).equals(Money.dollar(5)));
 		}
-	public void testCurrency() {
-		assertEquals("USD", Money.dollar(1).currency());
-		assertEquals("CHF", Money.franc(1).currency());
-		}
+	
 
 }
