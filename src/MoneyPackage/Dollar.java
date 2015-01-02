@@ -13,5 +13,8 @@ class Franc {
 		return amount == franc.amount;
 	}
 }
+class Dollar extends Money{
+	
+}
 
 
